@@ -498,6 +498,12 @@ describe "Comments" do
         expect(page).to have_css "div.is-admin"
       end
     end
+
+    scenario "can not comment as a moderator", :admin do
+      visit polymorphic_path(resource)
+
+      expect(page).not_to have_content "Comment as moderator"
+    end
   end
 
   scenario "Errors on create" do
