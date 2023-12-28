@@ -25,4 +25,20 @@ describe Layout::CookiesConsentComponent do
 
     expect(page).not_to have_css(".cookies-consent")
   end
+
+  it "renders a link when the setting `cookies_consent.more_info_link` is defined" do
+    Setting["cookies_consent.more_info_link"] = "/cookies_policy"
+
+    render_inline Layout::CookiesConsentComponent.new
+
+    expect(page).to have_link("More information", href: "/cookies_policy")
+  end
+
+  it "does not renders a link when the setting `cookies_consent.more_info_link` is not defined" do
+    Setting["cookies_consent.more_info_link"] = ""
+
+    render_inline Layout::CookiesConsentComponent.new
+
+    expect(page).not_to have_link("More information")
+  end
 end
