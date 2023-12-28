@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   draw :user
   draw :valuation
   draw :verification
+  post "/cookies", to: "cookies#consent", as: :cookies_consent
 
   root "welcome#index"
   get "/welcome", to: "welcome#welcome"

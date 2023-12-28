@@ -1,0 +1,9 @@
+<div class="cookies-consent">
+  <h2><%= t("cookies_consent.title") %></h2>
+  <p><%= t("cookies_consent.message") %></p>
+
+  <%= form_tag(cookies_consent_path, method: :post) do %>
+    <%= hidden_field_tag :allow_cookies, "all" %>
+    <button type="submit" class="accept"><%= t("cookies_consent.accept") %></button>
+  <% end %>
+</div>
