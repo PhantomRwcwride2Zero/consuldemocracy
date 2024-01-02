@@ -10,8 +10,15 @@ describe Layout::CookiesConsentComponent do
   end
 
   it "does not render the banner when cookies were accepted" do
-    allow_any_instance_of(Layout::CookiesConsentComponent)
-      .to receive(:missing_cookies_setup?).and_return(false)
+    allow_any_instance_of(Layout::CookiesConsentComponent).to receive(:current_value).and_return("all")
+
+    render_inline Layout::CookiesConsentComponent.new
+
+    expect(page).not_to have_css(".cookies-consent")
+  end
+
+  it "does not render the banner when third party cookies were rejected" do
+    allow_any_instance_of(Layout::CookiesConsentComponent).to receive(:current_value).and_return("essential")
 
     render_inline Layout::CookiesConsentComponent.new
 
@@ -40,5 +47,13 @@ describe Layout::CookiesConsentComponent do
     render_inline Layout::CookiesConsentComponent.new
 
     expect(page).not_to have_link("More information")
+  end
+
+  it "renders the cookies consent rejection link when the third_party setting is defined" do
+    Setting["cookies_consent.third_party"] = "<li>Google Analytics</li>"
+
+    render_inline Layout::CookiesConsentComponent.new
+
+    expect(page).to have_button("Reject")
   end
 end

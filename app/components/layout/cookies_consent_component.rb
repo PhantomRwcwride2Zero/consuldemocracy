@@ -9,9 +9,17 @@ class Layout::CookiesConsentComponent < ApplicationComponent
     Setting["cookies_consent.more_info_link"]
   end
 
+  def third_party_cookies?
+    Setting["cookies_consent.third_party"].present?
+  end
+
   private
 
     def missing_cookies_setup?
-      cookies[:allow_cookies].blank?
+      current_value.blank?
+    end
+
+    def current_value
+      cookies[:allow_cookies]
     end
 end

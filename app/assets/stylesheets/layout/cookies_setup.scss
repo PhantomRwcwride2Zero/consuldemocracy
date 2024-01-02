@@ -1,12 +1,23 @@
-.cookies-consent {
-  z-index: 9;
-  position: fixed;
-  left: $line-height / 3;
-  right: $line-height / 3;
-  bottom: $line-height / 3;
-  padding: 2rem;
-  border: 1px solid $brand;
-  background: $white;
+.cookies-setup {
+  border-radius: 0.75rem;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul {
+    font-size: $base-font-size;
+  }
+
+  .close-button {
+    @include close-button;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
 
   form {
     display: inline-block;
@@ -28,14 +39,16 @@
     &.reject {
       @include regular-button;
       margin-bottom: 0;
+    }
 
+    &.accept {
       @include breakpoint(small only) {
         margin-bottom: $line-height / 3;
       }
     }
-
-    &.setup {
-      @include hollow-button;
-    }
   }
+}
+
+.is-reveal-open {
+  overflow: unset !important;
 }

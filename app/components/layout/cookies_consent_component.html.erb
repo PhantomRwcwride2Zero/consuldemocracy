@@ -9,4 +9,12 @@
     <%= hidden_field_tag :allow_cookies, "all" %>
     <button type="submit" class="accept"><%= t("cookies_consent.accept") %></button>
   <% end %>
+
+  <% if third_party_cookies? %>
+    <%= form_tag(cookies_consent_path, method: :post) do %>
+      <%= hidden_field_tag :allow_cookies, "essential" %>
+      <button type="submit" class="reject"><%= t("cookies_consent.reject") %></button>
+    <% end %>
+    <button data-open="cookies_setup" class="setup"><%= t("cookies_consent.setup") %></button>
+  <% end %>
 </div>
