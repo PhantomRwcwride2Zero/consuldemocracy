@@ -13,4 +13,26 @@ describe Layout::FooterComponent do
       end
     end
   end
+
+  describe "when the cookies consent feature is enabled" do
+    before { Setting["feature.cookies_consent"] = true }
+
+    it "does not show a link to the cookies setup modal when no third party cookies defined" do
+      render_inline Layout::FooterComponent.new
+
+      page.find(".subfooter") do |subfooter|
+        expect(subfooter).not_to have_css "a[data-open=cookies_setup]", text: "Cookies setup"
+      end
+    end
+
+    it "shows a link to the cookies setup modal when third party cookies are defined" do
+      Setting["cookies_consent.third_party"] = "<li>Third party vendor</li>"
+
+      render_inline Layout::FooterComponent.new
+
+      page.find(".subfooter") do |subfooter|
+        expect(subfooter).to have_css "a[data-open=cookies_setup]", text: "Cookies setup"
+      end
+    end
+  end
 end

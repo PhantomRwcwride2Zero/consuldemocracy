@@ -22,4 +22,8 @@ class Layout::FooterComponent < ApplicationComponent
     def allowed_link_attributes
       self.class.sanitized_allowed_attributes + ["rel"]
     end
+
+    def cookies_enabled?
+      Setting["feature.cookies_consent"].presence && Setting["cookies_consent.third_party"].present?
+    end
 end

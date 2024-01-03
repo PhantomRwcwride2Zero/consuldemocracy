@@ -4,7 +4,7 @@ class CookiesController < ApplicationController
   def consent
     cookies["allow_cookies"] = cookies_consent_params[:allow_cookies]
 
-    redirect_to request.referer
+    redirect_to request.referer, notice: t("cookies_consent.notice")
   end
 
   private
