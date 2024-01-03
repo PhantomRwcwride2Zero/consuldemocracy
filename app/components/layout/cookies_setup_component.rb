@@ -8,4 +8,8 @@ class Layout::CookiesSetupComponent < ApplicationComponent
   def vendors
     Cookies::Vendor.all
   end
+
+  def version_name
+    Setting["cookies_consent.version_name"]
+  end
 end

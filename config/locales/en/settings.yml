@@ -232,3 +232,5 @@ en:
       more_info_link_description: Link shown in the consent banner to the cookie policy page.
       third_party: Third party cookies description
       third_party_description: You can use this setting to show the users the application's third-party providers. When using this field, the user can accept or reject all third-party cookies but cannot independently turn them on or off. If you need independent consent for each vendor, please leave this field blank and create some records in the cookies vendors providers below.
+      version_name: Version name
+      version_name_description: Change the version name to force all users to go through the cookie consent process again. This can be particularly useful when drastic changes are made to the cookie policy that require user acceptance.

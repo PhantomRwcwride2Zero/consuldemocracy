@@ -20,6 +20,10 @@ class Layout::CookiesConsentComponent < ApplicationComponent
     end
 
     def current_value
-      cookies[:allow_cookies]
+      cookies["allow_cookies#{version_name}"]
+    end
+
+    def version_name
+      Setting["cookies_consent.version_name"]
     end
 end

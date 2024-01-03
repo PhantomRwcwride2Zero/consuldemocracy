@@ -2,7 +2,7 @@ class CookiesController < ApplicationController
   skip_authorization_check
 
   def consent
-    cookies["allow_cookies"] = cookies_consent_params[:allow_cookies]
+    cookies["allow_cookies#{version_name}"] = cookies_consent_params[:allow_cookies]
 
     if cookies_by_vendor_params.present?
       Cookies::Vendor.find_each do |vendor|
@@ -21,5 +21,9 @@ class CookiesController < ApplicationController
 
     def cookies_by_vendor_params
       params.permit(::Cookies::Vendor.pluck(:cookie))
+    end
+
+    def version_name
+      Setting["cookies_consent.version_name"]
     end
 end

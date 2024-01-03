@@ -232,3 +232,5 @@ es:
       more_info_link_description: Enlace que se muestra en el banner de consentimiento a la página de política de cookies
       third_party: Activa el consentimiento explícito para cookies de terceros
       third_party_description: Puede utilizar esta configuración para mostrar a los usuarios los proveedores de terceros de la aplicación. Al utilizar este campo, el usuario puede aceptar o rechazar todas las cookies de terceros, pero no puede activarlas o desactivarlas de forma independiente. Si necesita un consentimiento independiente para cada proveedor, deje este campo en blanco y cree algunos registros en los proveedores de cookies de proveedores a continuación.
+      version_name: Nombré de la versión
+      version_name_description: Cambia el nombre de la versión para obligar a todos los usuarios a realizar el proceso de consentimiento de cookies de nuevo. Esto puede ser particularmente útil cuando se introducen cambios drásticos en la política de cookies que reuieres de la aceptación por parte de los usuarios.

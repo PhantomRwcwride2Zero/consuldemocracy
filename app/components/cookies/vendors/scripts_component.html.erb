@@ -1,6 +1,6 @@
 <script type="text/javascript">
   function run_vendors_scripts () {
-    var cookie_name = "allow_cookies";
+    var cookie_name = "allow_cookies" + $("#cookies_setup").data("version-name");
     <% vendors.each do |vendor| %>
       if ((App.Cookies.getCookie(cookie_name) === "all") ||
           ((App.Cookies.getCookie(cookie_name) === "custom") &&

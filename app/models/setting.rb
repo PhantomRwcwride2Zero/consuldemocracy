@@ -183,7 +183,8 @@ class Setting < ApplicationRecord
         "sdg.process.budgets": true,
         "sdg.process.legislation": true,
         "cookies_consent.more_info_link": "",
-        "cookies_consent.third_party": false
+        "cookies_consent.third_party": false,
+        "cookies_consent.version_name": "v1"
       }
     end
 
