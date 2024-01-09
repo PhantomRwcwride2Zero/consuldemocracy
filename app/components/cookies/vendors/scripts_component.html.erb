@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  function run_vendors_scripts () {
+    var cookie_name = "allow_cookies";
+    <% vendors.each do |vendor| %>
+      if ((App.Cookies.getCookie(cookie_name) === "all") ||
+          ((App.Cookies.getCookie(cookie_name) === "custom") &&
+          (App.Cookies.getCookie("<%= vendor.cookie %>") === "true"))) {
+        <%= sanitize vendor.script %>
+      }
+    <% end %>
+  }
+  $(document).on("turbolinks:load", run_vendors_scripts);
+</script>

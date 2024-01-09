@@ -9,11 +9,37 @@
 
   <h3><%= t("cookies_setup.essentials.title") %></h3>
   <p><%= t("cookies_setup.essentials.description") %></p>
+  <div class="cookies-vendors">
+    <ul>
+      <li>
+        <%= render Cookies::SwitchComponent.new(:essential_cookies,
+                                                label: t("cookies_setup.essentials.title"),
+                                                description: t("cookies_setup.essentials.button.description"),
+                                                checked: true,
+                                                disabled: true) %>
+      </li>
+    </ul>
+  </div>
 
   <h3><%= t("cookies_setup.third_party.title") %></h3>
   <p><%= t("cookies_setup.third_party.description") %></p>
   <p><%= t("cookies_setup.third_party.activation") %></p>
-  <%= third_party_cookies %>
+
+  <% if third_party_cookies %>
+    <div class="cookies-vendors">
+      <ul>
+        <li>
+          <%= render Cookies::SwitchComponent.new(:allow_cookies,
+                                                  label: t("cookies_setup.third_party.title"),
+                                                  description: third_party_cookies,
+                                                  checked: cookies["allow_cookies#{version_name}"] == "all",
+                                                  disabled: true) %>
+        </li>
+      </ul>
+    </div>
+  <% else %>
+    <%= render Cookies::Vendors::FormComponent.new(vendors) %>
+  <% end %>
 
   <hr>
 

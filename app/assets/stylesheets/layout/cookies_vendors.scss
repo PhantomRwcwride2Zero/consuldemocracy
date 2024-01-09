@@ -1,0 +1,56 @@
+.cookies-vendors {
+  ul {
+    list-style: none;
+    margin-left: 0;
+    margin-right: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: $line-height;
+      width: 100%;
+      padding: $line-height / 3;
+
+      &:nth-child(odd) {
+        background: #efefef;
+      }
+    }
+  }
+
+  form {
+    width: 100%;
+
+    [type=submit] {
+      @include hollow-button;
+
+      font-weight: bold;
+      background-color: $white;
+
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+
+  .switch {
+    margin-top: $line-height / 3;
+
+    &:focus-within {
+      @include focus-outline;
+    }
+  }
+
+  p {
+    font-size: $base-font-size;
+    margin-bottom: 0;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .save-preferences {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

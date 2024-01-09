@@ -24,6 +24,7 @@ class Layout::FooterComponent < ApplicationComponent
     end
 
     def cookies_enabled?
-      Setting["feature.cookies_consent"].presence && Setting["cookies_consent.third_party"].present?
+      Setting["feature.cookies_consent"].presence &&
+        (Setting["cookies_consent.third_party"].present? || ::Cookies::Vendor.any?)
     end
 end

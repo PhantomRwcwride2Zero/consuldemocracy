@@ -10,7 +10,7 @@ class Layout::CookiesConsentComponent < ApplicationComponent
   end
 
   def third_party_cookies?
-    Setting["cookies_consent.third_party"].present?
+    Setting["cookies_consent.third_party"].present? || ::Cookies::Vendor.any?
   end
 
   private

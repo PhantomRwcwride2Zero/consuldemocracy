@@ -34,5 +34,15 @@ describe Layout::FooterComponent do
         expect(subfooter).to have_css "a[data-open=cookies_setup]", text: "Cookies setup"
       end
     end
+
+    it "shows a link to the cookies setup modal when third party cookies vendos are defined" do
+      Cookies::Vendor.create!(name: "Vendor name", cookie: "vendor_name")
+
+      render_inline Layout::FooterComponent.new
+
+      page.find(".subfooter") do |subfooter|
+        expect(subfooter).to have_css "a[data-open=cookies_setup]", text: "Cookies setup"
+      end
+    end
   end
 end
