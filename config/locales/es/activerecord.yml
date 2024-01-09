@@ -151,6 +151,9 @@ es:
       votation_type:
         one: Tipo de votación
         other: Tipos de votación
+      cookies_vendor:
+        one: Proveedor de cookies
+        other: Proveedorores de cookies
     attributes:
       budget:
         name: "Nombre"
@@ -533,6 +536,11 @@ es:
       votation_type/vote_type:
         unique: Respuesta única
         multiple: Respuesta múltiple
+      cookies/vendor:
+        name: Nombre del proveedor
+        cookie: Nombre de la cookie
+        description: Descripción
+        script: Código javascript
     errors:
       models:
         user:

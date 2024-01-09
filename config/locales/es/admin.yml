@@ -1797,3 +1797,18 @@ es:
       tags: "Etiquetas"
       tags_description: "Genera etiquetas automáticas para todos los elementos que pueden ser etiquetados."
       title: "IA / Machine learning"
+    cookies:
+      vendors:
+        empty: No se han encontrado registros
+        third_party_cookies: Cookies de terceros
+        create_button: Nueva cookie
+        create:
+          notice: Cookie creada correctamente
+        new:
+          title: Nueva cookie de terceros
+        edit:
+          title: Editar cookie
+        update:
+          notice: Cookie actualizada correctamente
+        destroy:
+          notice: Cookie eliminada correctamente
