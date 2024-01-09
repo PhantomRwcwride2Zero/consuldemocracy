@@ -1,0 +1,14 @@
+<div class="switch large">
+  <input class="switch-input"
+         <%= "disabled" if disabled? %>
+         <%= "checked" if checked? %>
+         id="<%= name %>"
+         type="checkbox"
+         name="<%= name %>"
+         value= "1">
+  <label class="switch-paddle" for="<%= name %>">
+    <span class="show-for-sr"><%= label %></span>
+    <span class="switch-active" aria-hidden="true"><%= t("shared.yes")%></span>
+    <span class="switch-inactive" aria-hidden="true"><%= t("shared.no")%></span>
+  </label>
+</div>
